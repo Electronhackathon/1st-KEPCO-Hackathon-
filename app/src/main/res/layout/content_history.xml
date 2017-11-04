@@ -1,4 +1,4 @@
-<layout>
+<layout xmlns:toos="http://schemas.android.com/tools">
 
     <data>
 
@@ -22,6 +22,13 @@
             android:layout_height="wrap_content"
             android:padding="16dp">
 
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="14dp"
+                android:layout_marginTop="4dp"
+                android:src="@{content.resource}" />
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -36,13 +43,31 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="@{content.content}"
-                    android:textColor="@color/commonTextColor"
-                    android:textSize="13sp" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="14dp"
+                        android:layout_marginTop="4dp"
+                        android:text="@{content.date}"
+                        android:textColor="@color/commonTextColor"
+                        android:textSize="13sp"
+                        toos:text="asdfasdfasdfasdf" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@{content.content}"
+                        android:textColor="#000"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        toos:text="2시간 경과" />
+                </LinearLayout>
             </LinearLayout>
 
             <TextView
@@ -51,7 +76,9 @@
                 android:layout_gravity="center"
                 android:text="@{content.price}"
                 android:textColor="#000"
-                android:textStyle="bold" />
+                android:textSize="18sp"
+                android:textStyle="bold"
+                toos:text="asdfadsf" />
 
 
         </LinearLayout>

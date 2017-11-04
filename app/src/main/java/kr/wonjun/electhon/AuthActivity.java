@@ -82,8 +82,6 @@ public class AuthActivity extends BaseActivity {
         binding.loginBtnn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-
                 if (binding.emailInput.getText().toString().equals("") || binding.passwordInput.getText().toString().equals(""))
                     Toast.makeText(AuthActivity.this, "빈칸 없이 입력해주세요", Toast.LENGTH_SHORT).show();
                 else {

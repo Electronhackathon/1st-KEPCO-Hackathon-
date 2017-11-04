@@ -3,10 +3,6 @@ package kr.wonjun.electhon.views;
 import android.content.Context;
 import android.util.AttributeSet;
 
-/**
- * Created by Junseok Oh on 2017-05-09.
- */
-
 public class CartaSquareView extends android.support.v7.widget.AppCompatImageView {
     public CartaSquareView(Context context, AttributeSet attrs) {
         super(context, attrs);

@@ -55,28 +55,7 @@ public class HWPayPasswordActivity extends BaseActivity {
             public void onClick(View v) {
                 if (binding.passwordInput.getText().toString().length() < 6)
                     Toast.makeText(HWPayPasswordActivity.this, "비밀번호가 잘못되었습니다.", Toast.LENGTH_SHORT).show();
-                else {
-                    NetworkHelper.getNetworkInstance().chargeSelf(
-                            CredentialsManager.getInstance().getActiveUser().second.getToken(),
-                            Integer.parseInt(getIntent().getStringExtra("money").replace("원", ""))
-                    ).enqueue(new Callback<User>() {
-                        @Override
-                        public void onResponse(Call<User> call, Response<User> response) {
-                            switch (response.code()) {
-                                case 200:
-                                    CredentialsManager.getInstance().updateUserInfo(response.body());
-                                    startActivity(new Intent(getApplicationContext(), HWPayCompleteActivity.class));
-                                    finish();
-                                    break;
-                            }
-                        }
 
-                        @Override
-                        public void onFailure(Call<User> call, Throwable t) {
-                            Log.e("asdf", t.getLocalizedMessage());
-                        }
-                    });
-                }
             }
         });
     }

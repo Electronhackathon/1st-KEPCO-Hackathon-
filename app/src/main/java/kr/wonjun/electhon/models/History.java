@@ -2,18 +2,14 @@ package kr.wonjun.electhon.models;
 
 import java.util.Date;
 
-/**
- * Created by Junseok Oh on 2017-07-24.
- */
-
 public class History {
     private int resource;
     private String title;
+    private String date;
     private String content;
-    private Date date;
     private int price;
 
-    public History(String title, String content, int price, int resource, Date date) {
+    public History(String title, String content, int price, int resource, String date) {
         this.title = title;
         this.content = content;
         this.price = price;
@@ -21,11 +17,11 @@ public class History {
         this.date = date;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

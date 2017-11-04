@@ -1,9 +1,5 @@
 package kr.wonjun.electhon.views;
 
-/**
- * Created by Junseok Oh on 2017-07-16.
- */
-
 import android.content.Context;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewPager;

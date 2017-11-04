@@ -42,34 +42,11 @@ public interface NetworkAPI {
             @Field("token") String token,
             @Field("nickname") String nickname);
 
-    @POST("/money/chargeSelf")
-    @FormUrlEncoded
-    Call<User> chargeSelf(
-            @Field("token") String token,
-            @Field("cost") int moneyAdded);
-
-    @POST("/money/chargeFriend")
-    @FormUrlEncoded
-    Call<ResponseBody> chargeFriend(
-            @Field("token") String token,
-            @Field("email") String email,
-            @Field("cost") int moneyAdded);
-
-    @GET("/search/user")
-    Call<ArrayList<User>> findUser(@Query("name") String nameQuery);
-
-    @POST("/money/purchase")
-    @FormUrlEncoded
-    Call<User> purchase(
-            @Field("token") String token, @Field("cost") int cost);
-
-
-    @POST("/self/gethistory")
-    @FormUrlEncoded
+    @GET("/pay/paymentList")
     Call<ArrayList<History>> getHistory(
-            @Field("token") String token);
-    @GET("/map")
-    Call<ArrayList<Map>> getMaps(@Query("lat") double latitude, @Query("lon") double longitude);
+            @Query("token") String token);
 
+    @GET("/location/payphone")
+    Call<ArrayList<Map>> getMaps();
 
 }

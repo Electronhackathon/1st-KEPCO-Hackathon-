@@ -54,15 +54,8 @@
         <activity android:name=".HWPayPasswordActivity" />
         <activity android:name=".HWPayCompleteActivity" />
 
-        <receiver android:name=".receiver.DownReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.MEDIA_BUTTON" />
-                <action android:name="android.media.VOLUME_CHANGED_ACTION" />
-            </intent-filter>
-        </receiver>
-
-        <activity android:name=".EntranceActivity" />
         <activity android:name=".ReserveActivity" />
+        <activity android:name=".RegisterCardActivity"></activity>
     </application>
 
 </manifest>

@@ -34,12 +34,18 @@ public class SplashActivity extends BaseActivity {
                 finish();
             }
         });
-        Log.e("asdf", CredentialsManager.getInstance().getActiveUser().first + "");
+        Log.e("asdf1", CredentialsManager.getInstance().getActiveUser().first + "");
+        Log.e("asdf1", CredentialsManager.getInstance().getActiveUser().second.getEmail() + "");
+        Log.e("asdf1", CredentialsManager.getInstance().getActiveUser().second.getName() + "");
+        Log.e("asdf1", CredentialsManager.getInstance().getActiveUser().second.getPw() + "");
+        Log.e("asdf1", CredentialsManager.getInstance().getActiveUser().first + "");
 
         if (CredentialsManager.getInstance().getActiveUser().first) {
-            NetworkHelper.getNetworkInstance().authenticateByToken(CredentialsManager.getInstance().getActiveUser().second.getToken()).enqueue(new Callback<User>() {
+            NetworkHelper.getNetworkInstance().loginLocal(CredentialsManager.getInstance().getActiveUser().second.getEmail()
+                    , CredentialsManager.getInstance().getActiveUser().second.getPw()).enqueue(new Callback<User>() {
                 @Override
                 public void onResponse(Call<User> call, Response<User> response) {
+                    Log.e("Asdf", "" + response.message());
                     switch (response.code()) {
                         case 200:
                             CredentialsManager.getInstance().updateUserInfo(response.body());

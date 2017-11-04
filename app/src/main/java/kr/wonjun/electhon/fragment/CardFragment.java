@@ -15,6 +15,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 
 import kr.wonjun.electhon.HWPayInfoActivity;
 import kr.wonjun.electhon.R;
+import kr.wonjun.electhon.RegisterCardActivity;
 import kr.wonjun.electhon.databinding.FragmentCardBinding;
 import kr.wonjun.electhon.databinding.FragmentSettingsBinding;
 import kr.wonjun.electhon.models.Card;
@@ -36,44 +37,22 @@ public class CardFragment extends Fragment {
         card = CredentialsManager.getInstance().getCardInfo();
         if (card == null) {
             binding.emptyContainer.setVisibility(View.VISIBLE);
-            binding.cardContainer.setVisibility(View.GONE);
+            binding.nonEmptyContainer.setVisibility(View.GONE);
         } else {
+            binding.emptyContainer.setVisibility(View.GONE);
+            binding.nonEmptyContainer.setVisibility(View.VISIBLE);
             binding.cardNum.setText("" + card);
-            binding.cardContainer.setBackground(new ColorDrawable(Color.parseColor(
+            binding.nonEmptyContainer.setBackground(new ColorDrawable(Color.parseColor(
                     CredentialsManager.getInstance().getColorBackground()
             )));
-            binding.moneyLeft.setText(card + "원");
-            binding.charge.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    new MaterialDialog.Builder(getActivity())
-                            .title("결제할 금액을 선택하세요")
-                            .items("1000원", "5000원", "10000원", "50000원")
-                            .itemsCallback(new MaterialDialog.ListCallback() {
-                                @Override
-                                public void onSelection(MaterialDialog dialog, View itemView, int position, CharSequence text) {
-                                    startActivity(new Intent(getActivity(), HWPayInfoActivity.class)
-                                            .putExtra("money", text.toString()));
-                                }
-                            }).show();
-                }
-            });
-            binding.giveSomeone.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    new MaterialDialog.Builder(getActivity())
-                            .title("선물할 금액을 선택하세요")
-                            .items("1000원", "5000원", "10000원", "50000원")
-                            .itemsCallback(new MaterialDialog.ListCallback() {
-                                @Override
-                                public void onSelection(MaterialDialog dialog, View itemView, int position, CharSequence text) {
-                                    startActivity(new Intent(getActivity(), HWPayInfoActivity.class)
-                                            .putExtra("money", text.toString()));
-                                }
-                            }).show();
-                }
-            });
         }
+        binding.emptyContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), RegisterCardActivity.class);
+                startActivity(intent);
+            }
+        });
         return binding.getRoot();
     }
 
@@ -81,7 +60,6 @@ public class CardFragment extends Fragment {
     public void onResume() {
         super.onResume();
         if (binding != null) {
-            binding.moneyLeft.setText(card + "원");
             binding.cardContainer.setBackground(new ColorDrawable(Color.parseColor(
                     CredentialsManager.getInstance().getColorBackground()
             )));

@@ -2,10 +2,6 @@ package kr.wonjun.electhon.views;
 
 import android.graphics.Color;
 
-/**
- * Created by fluor on 2017-05-07.
- */
-
 public class CartaTagConfiguration {
     private boolean textColorEnabled = false, isFullMode = false, isGradient = false;
     private int themeColor = Color.BLACK, gradientStartColor = Color.BLACK, gradientEndColor = Color.WHITE, textColor = Color.BLACK;
