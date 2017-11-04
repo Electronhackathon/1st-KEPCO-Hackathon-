@@ -1,0 +1,40 @@
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="kr.wonjun.electhon.MainActivity">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/activity_background"
+            android:orientation="vertical">
+
+            <kr.wonjun.electhon.views.ControllableViewPager
+                android:id="@+id/mainPager"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <com.roughike.bottombar.BottomBar
+                android:id="@+id/mainBottombar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bottombar_height"
+                android:background="@color/colorPrimary"
+                app:bb_activeTabColor="@android:color/transparent"
+                app:bb_inActiveTabAlpha="0.3"
+                app:bb_inActiveTabColor="@android:color/transparent"
+                app:bb_behavior="iconsOnly"
+                app:bb_tabXmlResource="@xml/main_bottombar_tab"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>
