@@ -46,6 +46,15 @@ public interface NetworkAPI {
     Call<ArrayList<History>> getHistory(
             @Query("token") String token);
 
+    @POST("/pay/addCard")
+    @FormUrlEncoded
+    Call<ResponseBody> addCard(
+            @Field("token") String token,
+            @Field("cardNum") String cardNum,
+            @Field("cardPassword") String cardPassword,
+            @Field("cardBirthday") String cardBirthday,
+            @Field("cardExpiry") String cardExpiry);
+
     @GET("/location/payphone")
     Call<ArrayList<Map>> getMaps();
 

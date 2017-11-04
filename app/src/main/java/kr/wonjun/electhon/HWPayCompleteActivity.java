@@ -12,11 +12,12 @@ import android.view.View;
 public class HWPayCompleteActivity extends AppCompatActivity {
 
     Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hwpay_complete);
-        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setBackgroundDrawable(
                 new ColorDrawable(ContextCompat.getColor(getApplicationContext(), R.color.hwColor)));

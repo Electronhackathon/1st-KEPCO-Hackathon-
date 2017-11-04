@@ -34,11 +34,6 @@ public class SplashActivity extends BaseActivity {
                 finish();
             }
         });
-        Log.e("asdf1", CredentialsManager.getInstance().getActiveUser().first + "");
-        Log.e("asdf1", CredentialsManager.getInstance().getActiveUser().second.getEmail() + "");
-        Log.e("asdf1", CredentialsManager.getInstance().getActiveUser().second.getName() + "");
-        Log.e("asdf1", CredentialsManager.getInstance().getActiveUser().second.getPw() + "");
-        Log.e("asdf1", CredentialsManager.getInstance().getActiveUser().first + "");
 
         if (CredentialsManager.getInstance().getActiveUser().first) {
             NetworkHelper.getNetworkInstance().loginLocal(CredentialsManager.getInstance().getActiveUser().second.getEmail()

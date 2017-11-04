@@ -14,9 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.facebook.login.LoginManager;
 import com.github.nitrico.lastadapter.Holder;
 import com.github.nitrico.lastadapter.ItemType;
 import com.github.nitrico.lastadapter.LastAdapter;
@@ -25,10 +23,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import kr.wonjun.electhon.BR;
-import kr.wonjun.electhon.CardPrintActivity;
 import kr.wonjun.electhon.ChangeDesignActivity;
 import kr.wonjun.electhon.R;
-import kr.wonjun.electhon.SplashActivity;
 import kr.wonjun.electhon.databinding.ContentSettingsBinding;
 import kr.wonjun.electhon.databinding.ContentSettingsHeaderBinding;
 import kr.wonjun.electhon.databinding.FragmentSettingsBinding;
@@ -49,10 +45,9 @@ public class SettingsFragment extends Fragment {
     public SettingsFragment() {
         Collections.addAll(arrayList,
                 "내 프로필",
-                new Settings("닉네임 변경", R.drawable.ic_settings_name, "1000GUK에서 사용할 닉네임을 변경합니다."),
-                "1000GUK 카드",
-                new Settings("카드 디자인 변경", R.drawable.ic_settings_change, "사용하고 있는 카드의 디자인을 변경합니다."),
-                new Settings("카드 인쇄", R.drawable.ic_settings_print, "오프라인으로 사용가능한 카드 인쇄를 신청합니다."));
+                new Settings("닉네임 변경", R.drawable.ic_settings_name, "payEphone에서 사용할 닉네임을 변경합니다."),
+                "카드",
+                new Settings("카드 디자인 변경", R.drawable.ic_settings_change, "사용하고 있는 카드의 디자인을 변경합니다."));
     }
 
     @Nullable
@@ -108,11 +103,6 @@ public class SettingsFragment extends Fragment {
                 break;
             case "카드 디자인 변경":
                 startActivity(new Intent(getActivity(), ChangeDesignActivity.class));
-
-                break;
-            case "카드 인쇄":
-                Toast.makeText(getContext(), "미구현 서비스 입니다.", Toast.LENGTH_SHORT).show();
-//                startActivity(new Intent(getActivity(), CardPrintActivity.class));
                 break;
         }
     }

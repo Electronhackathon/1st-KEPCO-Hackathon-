@@ -37,6 +37,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data android:scheme="@string/fb_login_protocol_scheme" />
+
             </intent-filter>
         </activity>
         <activity android:name=".AuthActivity" />
@@ -49,13 +50,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".ChangeDesignActivity" />
-        <activity android:name=".CardPrintActivity" />
         <activity android:name=".HWPayInfoActivity" />
         <activity android:name=".HWPayPasswordActivity" />
         <activity android:name=".HWPayCompleteActivity" />
-
         <activity android:name=".ReserveActivity" />
-        <activity android:name=".RegisterCardActivity"></activity>
+        <activity android:name=".RegisterCardActivity" />
     </application>
 
 </manifest>

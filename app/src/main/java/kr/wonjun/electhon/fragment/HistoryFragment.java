@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import kr.wonjun.electhon.R;
 import kr.wonjun.electhon.databinding.ContentHistoryBinding;
 import kr.wonjun.electhon.databinding.FragmentHistoryBinding;
-import kr.wonjun.electhon.databinding.FragmentSettingsBinding;
 import kr.wonjun.electhon.models.History;
 import kr.wonjun.electhon.utils.CredentialsManager;
 import kr.wonjun.electhon.utils.NetworkHelper;

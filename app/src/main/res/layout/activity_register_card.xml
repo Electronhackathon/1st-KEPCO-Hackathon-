@@ -31,6 +31,8 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
                     android:hint="카드 번호 (0000-0000-0000-0000)"
+                    android:inputType="number"
+                    android:digits="0123456789-"
                     android:textColor="#979797"
                     android:textSize="18sp" />
 
@@ -48,6 +50,7 @@
                     android:background="@android:color/transparent"
                     android:hint="만료 년 / 월 (yyyy-MM)"
                     android:inputType="number"
+                    android:digits="0123456789-"
                     android:textColor="#979797"
                     android:textSize="18sp" />
 
@@ -86,6 +89,7 @@
                         android:layout_marginEnd="12dp"
                         android:background="@drawable/input_bg_transparent"
                         android:gravity="center"
+                        android:inputType="number"
                         android:maxLength="1"
                         android:padding="5dp"
                         android:textColor="#979797"
@@ -98,6 +102,7 @@
                         android:layout_marginEnd="12dp"
                         android:background="@drawable/input_bg_transparent"
                         android:gravity="center"
+                        android:inputType="number"
                         android:maxLength="1"
                         android:padding="5dp"
                         android:textColor="#979797"

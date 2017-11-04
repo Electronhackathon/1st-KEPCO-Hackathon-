@@ -21,7 +21,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="천국을 검색해보세요"
+                    android:hint=" 검색해보세요"
                     android:maxLines="1"
                     android:textSize="16sp" />
 
@@ -31,7 +31,7 @@
                     android:layout_height="24dp"
                     android:layout_gravity="center"
                     android:layout_marginEnd="16dp"
-                    android:src="#000" />
+                    android:src="@drawable/ic_search_24dp" />
             </LinearLayout>
         </android.support.v7.widget.Toolbar>
 
@@ -55,14 +55,15 @@
                 android:orientation="vertical">
 
                 <ImageView
-
                     android:layout_width="wrap_content"
-                    android:layout_height="22dp" />
+                    android:layout_height="22dp"
+                    android:src="@drawable/pic_card_logo"
+                    android:tint="#2949ce" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
+                    android:layout_marginTop="3dp"
                     android:text="지점 찾기"
                     android:textColor="#9b9b9b"
                     android:textSize="13sp" />

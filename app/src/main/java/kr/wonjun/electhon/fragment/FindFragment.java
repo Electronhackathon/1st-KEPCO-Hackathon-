@@ -19,6 +19,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
 import kr.wonjun.electhon.PlaceRecyclerViewAdapter;
@@ -54,6 +56,12 @@ public class FindFragment extends Fragment implements OnMapReadyCallback {
         mapFragment.getMapAsync(this);
 
         adapter = new PlaceRecyclerViewAdapter(arrayList, getContext());
+        adapter.setOnClick(new PlaceRecyclerViewAdapter.Companion.OnListItemClick() {
+            @Override
+            public void onListItemClick(@NotNull View v, int position) {
+
+            }
+        });
         binding.listView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         binding.listView.setAdapter(adapter);
         return binding.getRoot();
@@ -66,23 +74,23 @@ public class FindFragment extends Fragment implements OnMapReadyCallback {
         if (gpsInfo.isGetLocation()) {
             map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(gpsInfo.getLatitude(), gpsInfo.getLongitude()), 16.0f));
 //            map.setMyLocationEnabled(true);
-            NetworkHelper.getNetworkInstance().getMaps().enqueue(new Callback<ArrayList<Map>>() {
-                @Override
-                public void onResponse(Call<ArrayList<Map>> call, Response<ArrayList<Map>> response) {
-                    switch (response.code()) {
-                        case 200:
-                            arrayList.addAll(response.body());
-                            for (Map m : arrayList) {
-                                map.addMarker(new MarkerOptions().position(new LatLng(m.getX(), m.getY())).title(m.getTitle()));
-                            }
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<ArrayList<Map>> call, Throwable t) {
-
-                }
-            });
+//            NetworkHelper.getNetworkInstance().getMaps().enqueue(new Callback<ArrayList<Map>>() {
+//                @Override
+//                public void onResponse(Call<ArrayList<Map>> call, Response<ArrayList<Map>> response) {
+//                    switch (response.code()) {
+//                        case 200:
+//                            arrayList.addAll(response.body());
+//                            for (Map m : arrayList) {
+//                                map.addMarker(new MarkerOptions().position(new LatLng(m.getX(), m.getY())).title(m.getTitle()));
+//                            }
+//                    }
+//                }
+//
+//                @Override
+//                public void onFailure(Call<ArrayList<Map>> call, Throwable t) {
+//
+//                }
+//            });
             map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
                 @Override
                 public boolean onMarkerClick(Marker marker) {

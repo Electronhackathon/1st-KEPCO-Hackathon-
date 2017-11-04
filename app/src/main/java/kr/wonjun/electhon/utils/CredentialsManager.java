@@ -55,11 +55,11 @@ public class CredentialsManager {
         editor.putString(USER_SCHEMA, new Gson().toJson(user));
         editor.putBoolean(HAS_ACTIVE_USER, true);
         editor.apply();
-        Log.e("user", new Gson().toJson(user));
     }
 
     public void saveCardInfo(Card card) {
-
+        editor.putString(CARD_INFO, new Gson().toJson(card));
+        editor.apply();
     }
 
     public Card getCardInfo() {

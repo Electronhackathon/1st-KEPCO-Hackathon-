@@ -42,7 +42,7 @@ public class CardFragment extends Fragment {
             binding.emptyContainer.setVisibility(View.GONE);
             binding.nonEmptyContainer.setVisibility(View.VISIBLE);
             binding.cardNum.setText("" + card);
-            binding.nonEmptyContainer.setBackground(new ColorDrawable(Color.parseColor(
+            binding.cardContainer.setBackground(new ColorDrawable(Color.parseColor(
                     CredentialsManager.getInstance().getColorBackground()
             )));
         }
@@ -53,6 +53,12 @@ public class CardFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        binding.charge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         return binding.getRoot();
     }
 
@@ -60,9 +66,18 @@ public class CardFragment extends Fragment {
     public void onResume() {
         super.onResume();
         if (binding != null) {
-            binding.cardContainer.setBackground(new ColorDrawable(Color.parseColor(
-                    CredentialsManager.getInstance().getColorBackground()
-            )));
+            card = CredentialsManager.getInstance().getCardInfo();
+            if (card == null) {
+                binding.emptyContainer.setVisibility(View.VISIBLE);
+                binding.nonEmptyContainer.setVisibility(View.GONE);
+            } else {
+                binding.emptyContainer.setVisibility(View.GONE);
+                binding.nonEmptyContainer.setVisibility(View.VISIBLE);
+                binding.cardNum.setText("" + card);
+                binding.cardContainer.setBackground(new ColorDrawable(Color.parseColor(
+                        CredentialsManager.getInstance().getColorBackground()
+                )));
+            }
         }
     }
 }
